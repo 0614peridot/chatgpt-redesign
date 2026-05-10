@@ -1,0 +1,83 @@
+{
+  "name": "PageButton",
+  "figmaNodeId": "1:846",
+  "description": "사이드바의 페이지/채팅 목록 항목. 텍스트 레이블과 선택적 아이콘을 포함.",
+  "dimensions": {
+    "width": 248,
+    "minHeight": 36
+  },
+  "props": {
+    "status": {
+      "type": "enum",
+      "values": ["Default", "Hover", "Selected"],
+      "default": "Default"
+    },
+    "hasIconStart": {
+      "type": "boolean",
+      "default": false,
+      "description": "왼쪽 아이콘 표시 여부"
+    },
+    "hasIconEnd": {
+      "type": "boolean",
+      "default": false,
+      "description": "오른쪽 more(...) 아이콘 표시 여부"
+    },
+    "label": {
+      "type": "string",
+      "default": "Deep research",
+      "description": "버튼에 표시될 텍스트"
+    }
+  },
+  "variants": [
+    {
+      "id": "1:847",
+      "status": "Default",
+      "style": {
+        "background": "transparent",
+        "borderRadius": "10px",
+        "textColor": "#0D0D0D"
+      }
+    },
+    {
+      "id": "1:854",
+      "status": "Hover",
+      "style": {
+        "background": "rgba(13,13,13,0.05)",
+        "borderRadius": "10px",
+        "textColor": "#0D0D0D"
+      }
+    },
+    {
+      "id": "1:861",
+      "status": "Selected",
+      "style": {
+        "background": "#E8E8E8",
+        "borderRadius": "10px",
+        "textColor": "#0D0D0D"
+      }
+    }
+  ],
+  "typography": {
+    "fontFamily": "Helvetica",
+    "fontWeight": 400,
+    "fontSize": 14,
+    "lineHeight": 20,
+    "letterSpacing": 0
+  },
+  "spacing": {
+    "paddingX": 10,
+    "paddingTop": 7.5,
+    "paddingBottom": 8.5,
+    "gap": 6
+  },
+  "designTokens": {
+    "color/grey/5": "#0D0D0D",
+    "color/grey/91": "#E8E8E8",
+    "color/grey/5-5%": "rgba(13,13,13,0.05)",
+    "color/black/0%": "rgba(0,0,0,0)",
+    "font-size/14": 14,
+    "line-height/20": 20,
+    "font-weight/400": 400,
+    "item-spacing/6": 6
+  }
+}

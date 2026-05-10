@@ -1,0 +1,74 @@
+{
+  "name": "Button",
+  "figmaNodeId": "1:877",
+  "description": "아이콘과 텍스트 레이블을 포함한 pill 형태의 액션 버튼. 빠른 실행 단축키(e.g. '이미지 생성') 등에 사용.",
+  "dimensions": {
+    "width": 180.2,
+    "height": 40
+  },
+  "props": {
+    "property1": {
+      "type": "enum",
+      "values": ["Default", "Hover"],
+      "default": "Default"
+    },
+    "label": {
+      "type": "string",
+      "default": "Create an image",
+      "description": "버튼에 표시될 텍스트"
+    }
+  },
+  "variants": [
+    {
+      "id": "1:878",
+      "property1": "Default",
+      "style": {
+        "background": "transparent",
+        "border": "1.2px solid rgba(143,143,143,0.2)",
+        "borderRadius": "1000px",
+        "textColor": "#5D5D5D",
+        "iconColor": "#5D5D5D"
+      }
+    },
+    {
+      "id": "1:881",
+      "property1": "Hover",
+      "style": {
+        "background": "rgba(13,13,13,0.05)",
+        "border": "1.2px solid rgba(143,143,143,0.2)",
+        "borderRadius": "1000px",
+        "textColor": "#000000",
+        "iconColor": "#000000"
+      }
+    }
+  ],
+  "typography": {
+    "fontFamily": "Helvetica",
+    "fontWeight": 400,
+    "fontSize": 16,
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "center"
+  },
+  "spacing": {
+    "paddingX": 16,
+    "paddingY": 10,
+    "gap": 10
+  },
+  "icon": {
+    "width": 19.2,
+    "height": 16,
+    "innerSize": 14.048
+  },
+  "designTokens": {
+    "color/grey/56-20%": "rgba(143,143,143,0.2)",
+    "color/grey/36": "#5D5D5D",
+    "color/grey/5-5%": "rgba(13,13,13,0.05)",
+    "color/black/solid": "#000000",
+    "stroke-weight/1_2": 1.2,
+    "item-spacing/10": 10,
+    "item-spacing/s": 16,
+    "line-height/20": 20,
+    "font-weight/400": 400
+  }
+}

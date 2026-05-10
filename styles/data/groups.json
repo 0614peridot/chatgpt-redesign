@@ -1,0 +1,252 @@
+{
+  "groups": [
+    {
+      "id": "group_thesis_methodology",
+      "name": "Thesis Methodology",
+      "displayName": "연구 방법론 설계",
+      "description": "혼합 연구 방법론 결정 및 설계. 표본 모집·분석 도구 등 방법론 전반.",
+      "conversationIds": [
+        "conv_001",
+        "conv_002",
+        "conv_003",
+        "conv_004",
+        "conv_005",
+        "conv_006",
+        "conv_007"
+      ],
+      "conversationCount": 7,
+      "summary": "Sequential explanatory mixed methods 채택. 인터뷰 12명 + 행동 로그 분석. Purposive sampling + snowball 보강. IRB 12월 초 신청 완료.",
+      "keyDecisions": [
+        "Sequential explanatory mixed methods 채택",
+        "인터뷰 12명 + 행동 로그 분석 결합",
+        "Purposive sampling + quota 방식 (연령·직업·AI 경험 분산)",
+        "표본 부족 시 snowball sampling으로 보강",
+        "IRB 신청 완료 (2024-12 초)"
+      ],
+      "openQuestions": [
+        "행동 로그 분석 도구 선택 (trace analysis 도구)",
+        "40대 이상 표본 다양성 부족 — academic rigor 유지 방안"
+      ],
+      "lastUpdated": "2024-12-19",
+      "color": "#10A37F",
+      "confidence": 0.94,
+      "createdAt": "2024-11-08"
+    },
+    {
+      "id": "group_literature_review",
+      "name": "Literature Review",
+      "displayName": "문헌 연구",
+      "description": "AI 신뢰 정의, 핵심 이론, 학회 트렌드 정리. 주요 논문 반복 참조.",
+      "conversationIds": [
+        "conv_008",
+        "conv_009",
+        "conv_010",
+        "conv_011",
+        "conv_012",
+        "conv_013",
+        "conv_014",
+        "conv_015",
+        "conv_016",
+        "conv_017"
+      ],
+      "conversationCount": 10,
+      "summary": "Lee & See (2004) trust 정의 채택. Trust(태도) vs Reliance(행동) 명확히 구분. Hoff & Bashir와 Toreini ABI+ 모델 분리 비교. Bansal 2021의 complementarity와 mental model alignment가 thesis와 연결.",
+      "keyDecisions": [
+        "Trust 정의: Lee & See (2004)의 'attitude' 정의 채택",
+        "Trust vs Reliance 구분: 태도 vs 행동",
+        "Hoff & Bashir와 Toreini ABI+ 모델은 분리 비교 (통합 X)",
+        "Theoretical framework: 투명성 → calibration accuracy, 통제권 → calibration 후 행동",
+        "참고 학회: FAccT (윤리) + CHI (broad HCI)"
+      ],
+      "openQuestions": [
+        "Hoff & Bashir vs Toreini 비교 분석 깊이"
+      ],
+      "lastUpdated": "2025-01-05",
+      "color": "#8E44AD",
+      "confidence": 0.96,
+      "createdAt": "2024-10-08",
+      "duplicatePattern": {
+        "detected": true,
+        "description": "Bansal et al. 2021 논문 요약 요청 3회, Lee & See trust 정의 확인 3회 — 같은 자료를 매번 새 대화에서 검색"
+      }
+    },
+    {
+      "id": "group_python_analysis",
+      "name": "Python Data Analysis",
+      "displayName": "Python 데이터 분석",
+      "description": "pandas/matplotlib 기반 분석. 반복되는 에러와 함수 사용법.",
+      "conversationIds": [
+        "conv_018",
+        "conv_019",
+        "conv_020",
+        "conv_021",
+        "conv_022",
+        "conv_023",
+        "conv_024",
+        "conv_025",
+        "conv_026",
+        "conv_027",
+        "conv_028",
+        "conv_029",
+        "conv_030"
+      ],
+      "conversationCount": 13,
+      "summary": "DataFrame shape mismatch 에러 5회 반복 발생 (서로 다른 대화에서 매번 새로 설명). groupby + agg() 패턴 정착. matplotlib 한글 폰트 설정 매번 재설정. interaction effect 시각화 진행 중.",
+      "keyDecisions": [
+        "DataFrame 합칠 때 axis 따라 row/column 일치 확인",
+        "다중 함수 적용 시 groupby + agg({}) 사용",
+        "matplotlib 한글 폰트 = AppleGothic (mac), rcParams 매번 설정",
+        "Cronbach's alpha = pingouin 라이브러리, α=0.87 (충분한 내적 일관성)"
+      ],
+      "openQuestions": [
+        "Interaction effect 시각화 — seaborn 색 조합 (학술 출판 적합)"
+      ],
+      "lastUpdated": "2025-02-01",
+      "color": "#E67E22",
+      "confidence": 0.91,
+      "createdAt": "2024-12-05",
+      "duplicatePattern": {
+        "detected": true,
+        "description": "⚠️ 'pandas DataFrame shape mismatch' 에러를 5번 다른 대화창에서 매번 새로 설명. 'groupby 사용법' 3회 반복. 'matplotlib 한글 폰트' 2회 반복. 약 2시간 분량의 컨텍스트 재설명 추정."
+      }
+    },
+    {
+      "id": "group_thesis_writing",
+      "name": "Thesis Writing",
+      "displayName": "논문 작성",
+      "description": "Introduction, Discussion, 인용 형식. 같은 단락을 여러 번 다듬는 패턴.",
+      "conversationIds": [
+        "conv_031",
+        "conv_032",
+        "conv_033",
+        "conv_034",
+        "conv_035",
+        "conv_036",
+        "conv_037",
+        "conv_038",
+        "conv_039"
+      ],
+      "conversationCount": 9,
+      "summary": "Introduction 4회 반복 수정 (problem statement 위치 → transition 추가 → 명확성 → evidence 보강). Discussion 학술 톤 + active voice + hedging 적용. Limitation을 future work 프레이밍으로 전환. APA 7th 인용 형식 준수.",
+      "keyDecisions": [
+        "Introduction: problem statement 앞으로, transition 추가, evidence 보강",
+        "Discussion: active voice + hedging language",
+        "Limitation을 weakness가 아닌 future work로 프레이밍",
+        "APA 7th edition: 3명 이상 저자 첫 인용도 et al."
+      ],
+      "openQuestions": [
+        "Introduction이 5번째 수정으로 갈지 — 지도교수 피드백 대기"
+      ],
+      "lastUpdated": "2025-02-05",
+      "color": "#3498DB",
+      "confidence": 0.92,
+      "createdAt": "2024-12-01",
+      "duplicatePattern": {
+        "detected": true,
+        "description": "⚠️ 'Improve this paragraph' 4회 반복 — 동일한 introduction 단락. 'Discussion 학술 톤' 3회 반복. 'APA 인용 형식' 2회 반복."
+      }
+    },
+    {
+      "id": "group_english_polishing",
+      "name": "English Polishing",
+      "displayName": "영문 다듬기",
+      "description": "한→영 번역, 학술 영어 다듬기, 문법 체크. thesis 마무리 단계 집중.",
+      "conversationIds": [
+        "conv_040",
+        "conv_041",
+        "conv_042",
+        "conv_043",
+        "conv_044",
+        "conv_045"
+      ],
+      "conversationCount": 6,
+      "summary": "Abstract·Conclusion·Discussion 영어 다듬기. Spoken English → academic English 전환 (nominalization, hedging → 정량화). Article(a/the) 사용 오류 다수 수정. Thesis title 영어 버전 확정.",
+      "keyDecisions": [
+        "Spoken → academic English: nominalization 적극 활용",
+        "Hedging('tend to') → 정량화('were more likely to')",
+        "Article 사용 주의 (한국인 영작의 함정)",
+        "Thesis title (EN): 'Designing for Trust in AI Assistants: The Role of Transparency and User Control'"
+      ],
+      "openQuestions": [],
+      "lastUpdated": "2025-02-06",
+      "color": "#16A085",
+      "confidence": 0.89,
+      "createdAt": "2025-01-18"
+    },
+    {
+      "id": "group_irb_admin",
+      "name": "IRB & Admin",
+      "displayName": "IRB 및 행정",
+      "description": "IRB 신청, 발표 준비, 행정 이메일 등 thesis 외부 작업.",
+      "conversationIds": [
+        "conv_046",
+        "conv_047",
+        "conv_048",
+        "conv_049"
+      ],
+      "conversationCount": 4,
+      "summary": "IRB 신청서 완성 (informed consent + risk assessment). 미팅 노트 템플릿 정착 (Decisions/Actions/Open Questions). Proposal 발표 15분 흐름 확정.",
+      "keyDecisions": [
+        "IRB 신청서: informed consent + risk assessment 중심",
+        "미팅 노트 템플릿: Decisions / Action Items / Open Questions",
+        "Proposal 발표: problem 3분 / gap 2분 / methods 5분 / contributions 3분 / Q&A 2분"
+      ],
+      "openQuestions": [],
+      "lastUpdated": "2024-12-18",
+      "color": "#95A5A6",
+      "confidence": 0.86,
+      "createdAt": "2024-11-15"
+    },
+    {
+      "id": "group_random_misc",
+      "name": "Random / Misc",
+      "displayName": "일상",
+      "description": "점심, 영화, 생활 잡다. thesis와 무관한 일상 대화.",
+      "conversationIds": [
+        "conv_050",
+        "conv_051",
+        "conv_052",
+        "conv_053",
+        "conv_054",
+        "conv_055"
+      ],
+      "conversationCount": 6,
+      "summary": "일상 잡다 — 점심, 영화, 청소, 카페, 건강.",
+      "keyDecisions": [],
+      "openQuestions": [],
+      "lastUpdated": "2025-01-29",
+      "color": "#BDC3C7",
+      "confidence": 0.78,
+      "createdAt": "2024-11-30"
+    },
+    {
+      "id": "group_job_search",
+      "name": "Job Search",
+      "displayName": "구직 준비",
+      "description": "영문 이력서·커버레터, 외국 회사 비자 정보. 졸업 후 준비 단계.",
+      "conversationIds": [
+        "conv_056",
+        "conv_057",
+        "conv_058",
+        "conv_059",
+        "conv_060"
+      ],
+      "conversationCount": 5,
+      "summary": "Resume 한→영 변환 + action verb 강화. Cover letter — thesis 경험을 industry strength로 전환, passive → active 톤. H-1B 스폰서 빅테크 리스트 정리 (Microsoft, Google, Meta, Apple).",
+      "keyDecisions": [
+        "Resume: action verb 강화 ('led' 'designed' 'shipped')",
+        "Resume: measurable impact + UX research 키워드 강조",
+        "Cover letter: thesis topic을 industry strength로 프레이밍",
+        "Cover letter 톤: passive → active, 학생 톤 → confident",
+        "타겟 회사: Microsoft, Google, Meta, Apple (H-1B 스폰)"
+      ],
+      "openQuestions": [
+        "비자 스폰서십 회사별 실제 통계 — 더 깊이 리서치 필요"
+      ],
+      "lastUpdated": "2025-02-08",
+      "color": "#E74C3C",
+      "confidence": 0.88,
+      "createdAt": "2025-01-20"
+    }
+  ]
+}

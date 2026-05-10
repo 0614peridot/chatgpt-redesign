@@ -1,0 +1,201 @@
+/* ============================================================
+   Design Tokens
+   Project: ChatGPT History, Auto-Organized
+   
+   Structure:
+   1. PRIMITIVES — Figma에서 export한 원시 값
+   2. SEMANTIC — 의미 기반 alias (컴포넌트에서 이걸 사용)
+   ============================================================ */
+
+:root {
+  /* ============================================================
+     1. PRIMITIVES
+     Figma export 기반. 직접 컴포넌트에 사용하지 말 것.
+     ============================================================ */
+
+  /* --- Color: Grey scale --- */
+  --color-grey-5: #0D0D0D;
+  --color-grey-36: #5D5D5D;
+  --color-grey-56: #8F8F8F;
+  --color-grey-81: #CECECE;
+  --color-grey-91: #E8E8E8;
+  --color-grey-98: #F9F9F9;
+
+  /* --- Color: Base --- */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* --- Color: Alpha variants --- */
+  --color-grey-5-alpha-5: #0D0D0D0D;     /* grey-5 @ 5% */
+  --color-grey-5-alpha-15: #0D0D0D26;    /* grey-5 @ 15% */
+  --color-grey-56-alpha-20: #8F8F8F33;   /* grey-56 @ 20% */
+  --color-grey-81-alpha-0: #CECECE00;    /* grey-81 @ 0% */
+  --color-black-alpha-0: #00000000;      /* black @ 0% */
+  --color-black-alpha-15: #00000026;     /* black @ 15% */
+
+  /* --- Stroke weight --- */
+  --stroke-weight-0_8: 0.8px;
+  --stroke-weight-1: 1px;
+  --stroke-weight-1_2: 1.2px;
+
+  /* --- Opacity --- */
+  --opacity-100: 1;
+
+  /* --- Width --- */
+  --width-40: 40px;
+  --width-248: 248px;
+  --width-260: 260px;
+  --width-268: 268px;
+  --width-768: 768px;
+
+  /* --- Height --- */
+  --height-32: 32px;
+  --height-34: 34px;
+  --height-35: 35px;
+  --height-36: 36px;
+  --height-42: 42px;
+  --height-44: 44px;
+  --height-56: 56px;
+  --height-270: 270px;
+  --height-326: 326px;
+
+  /* --- Spacing --- */
+  --space-0: 0;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;       /* 기존 's' */
+  --space-24: 24px;       /* 기존 's+' */
+  --space-104: 104.64px;
+  --space-128: 127.92px;
+  --space-172: 172px;
+
+  /* --- Typography: Family --- */
+  --font-family-display: 'OpenAI Sans', system-ui, sans-serif;
+  --font-family-body: 'Helvetica', system-ui, sans-serif;
+
+  /* --- Typography: Size --- */
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-28: 28px;
+
+  /* --- Typography: Line height --- */
+  --line-height-12: 12px;
+  --line-height-14: 14px;
+  --line-height-16: 16px;
+  --line-height-18: 18px;
+  --line-height-20: 20px;
+  --line-height-24: 24px;
+  --line-height-28: 28px;
+
+  /* --- Typography: Weight --- */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* --- Typography: Letter spacing --- */
+  --letter-spacing-tight: -0.27px;
+
+
+  /* ============================================================
+     2. SEMANTIC
+     컴포넌트에서 이것만 사용. 디자인 결정과 코드를 분리.
+     ============================================================ */
+
+  /* --- Text color --- */
+  --color-text-primary: var(--color-grey-5);
+  --color-text-secondary: var(--color-grey-36);
+  --color-text-muted: var(--color-grey-56);
+  --color-text-disabled: var(--color-grey-81);
+  --color-text-inverse: var(--color-white);
+
+  /* --- Background color --- */
+  --color-bg-default: var(--color-white);
+  --color-bg-sidebar: var(--color-grey-98);
+  --color-bg-hover: var(--color-grey-91);
+  --color-bg-active: var(--color-grey-5-alpha-5);
+  --color-bg-overlay: var(--color-black-alpha-15);
+
+  /* --- Border color --- */
+  --color-border-subtle: var(--color-grey-91);
+  --color-border-default: var(--color-grey-81);
+  --color-border-strong: var(--color-grey-56);
+
+  /* --- Border width --- */
+  --border-width-thin: var(--stroke-weight-0_8);
+  --border-width-default: var(--stroke-weight-1);
+  --border-width-thick: var(--stroke-weight-1_2);
+
+  /* --- Typography: Semantic sizes --- */
+  --text-caption: var(--font-size-12);     /* 작은 라벨, 보조 정보 */
+  --text-body-sm: var(--font-size-14);     /* 본문 작은 사이즈 */
+  --text-body: var(--font-size-16);        /* 본문 기본 */
+  --text-body-lg: var(--font-size-18);     /* 본문 큰 사이즈 */
+  --text-heading-sm: var(--font-size-20);  /* 작은 제목 */
+  --text-heading: var(--font-size-24);     /* 기본 제목 */
+  --text-heading-lg: var(--font-size-28);  /* 큰 제목 */
+
+  /* --- Typography: Semantic weights --- */
+  --text-weight-regular: var(--font-weight-regular);
+  --text-weight-emphasis: var(--font-weight-semibold);
+  --text-weight-strong: var(--font-weight-bold);
+
+  /* --- Typography: Font family --- */
+  --text-font-display: var(--font-family-display);
+  --text-font-body: var(--font-family-body);
+
+  /* --- Component: Sidebar --- */
+  --sidebar-width: var(--width-268);
+  --sidebar-bg: var(--color-bg-sidebar);
+  --sidebar-item-height: var(--height-36);
+  --sidebar-item-padding: var(--space-10);
+  --sidebar-item-radius: var(--space-10);
+  --sidebar-section-gap: var(--space-8);
+
+  /* --- Component: Button --- */
+  --button-height-sm: var(--height-32);
+  --button-height-default: var(--height-36);
+  --button-height-lg: var(--height-44);
+  --button-padding-x: var(--space-16);
+  --button-radius: var(--space-8);
+
+  /* --- Component: Input --- */
+  --input-height: var(--height-44);
+  --input-padding-x: var(--space-16);
+  --input-border: var(--color-border-default);
+
+  /* --- Component: Card --- */
+  --card-padding: var(--space-16);
+  --card-radius: var(--space-12);
+  --card-border: var(--color-border-subtle);
+
+  /* --- Component: Modal --- */
+  --modal-overlay: var(--color-bg-overlay);
+  --modal-radius: var(--space-16);
+  --modal-padding: var(--space-24);
+  --modal-shadow: 0 8px 24px var(--color-black-alpha-15);
+
+  /* --- Layout --- */
+  --layout-content-max-width: var(--width-768);
+  --layout-section-spacing: var(--space-24);
+
+  /* --- Spacing (semantic) --- */
+  --spacing-xxs: var(--space-4);
+  --spacing-xs: var(--space-6);
+  --spacing-sm: var(--space-8);
+  --spacing-md: var(--space-12);
+  --spacing-lg: var(--space-16);
+
+  /* --- Component: Search modal --- */
+  --search-modal-gap: var(--spacing-md);
+  --search-modal-gap-sm: var(--spacing-sm);
+  --search-modal-item-padding: var(--spacing-md);
+  --search-modal-item-radius: var(--card-radius);
+}

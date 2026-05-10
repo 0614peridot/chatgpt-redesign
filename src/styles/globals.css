@@ -1,0 +1,149 @@
+/* ============================================================
+   Global Styles
+   Project: ChatGPT History, Auto-Organized
+   
+   사이트 전역에 한 번만 적용되는 기본 스타일.
+   ============================================================ */
+
+
+/* ============================================================
+   1. IMPORTS
+   ============================================================ */
+
+/* Design tokens — 반드시 Tailwind보다 먼저 import */
+@import "./tokens.css";
+
+/* ============================================================
+   2. RESET
+   브라우저 기본 스타일 초기화 (Chrome/Safari/Firefox 통일)
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ============================================================
+   3. BODY DEFAULTS
+   사이트 전체의 디폴트 룩
+   ============================================================ */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--text-font-display);
+  font-size: var(--text-body);
+  font-weight: var(--text-weight-regular);
+  line-height: var(--line-height-24);
+  color: var(--color-text-primary);
+  background: var(--color-bg-default);
+  
+  /* 폰트 렌더링 부드럽게 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* 텍스트 선택 시 깔끔하게 */
+  text-rendering: optimizeLegibility;
+}
+
+
+/* ============================================================
+   4. TYPOGRAPHY DEFAULTS
+   HTML 기본 요소들의 디폴트 스타일
+   ============================================================ */
+
+h1 {
+  font-size: var(--text-heading-lg);
+  font-weight: var(--text-weight-strong);
+  line-height: var(--line-height-28);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h2 {
+  font-size: var(--text-heading);
+  font-weight: var(--text-weight-strong);
+  line-height: var(--line-height-28);
+}
+
+h3 {
+  font-size: var(--text-heading-sm);
+  font-weight: var(--text-weight-emphasis);
+  line-height: var(--line-height-24);
+}
+
+h4 {
+  font-size: var(--text-body-lg);
+  font-weight: var(--text-weight-emphasis);
+  line-height: var(--line-height-24);
+}
+
+p {
+  font-size: var(--text-body);
+  line-height: var(--line-height-24);
+  color: var(--color-text-primary);
+}
+
+small {
+  font-size: var(--text-caption);
+  color: var(--color-text-muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+
+/* ============================================================
+   5. UTILITY
+   자주 쓰는 작은 유틸리티
+   ============================================================ */
+
+/* 스크롤바 스타일 (선택) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-grey-81);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-grey-56);
+}
+
+/* 텍스트 선택 색 */
+::selection {
+  background: var(--color-grey-91);
+  color: var(--color-text-primary);
+}

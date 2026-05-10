@@ -1,0 +1,135 @@
+{
+  "id": "user_jihyo",
+  "name": "Jihyo Kim",
+  "email": "jihyo.kim@university.ac.kr",
+  "joinedAt": "2024-09-15",
+  "totalConversations": 60,
+  "thesisTopic": "AI 어시스턴트의 신뢰 형성 요인: 투명성과 통제권을 중심으로",
+  "stats": {
+    "categoryDistribution": [
+      { "category": "research", "count": 21, "percent": 35 },
+      { "category": "code", "count": 13, "percent": 22 },
+      { "category": "writing", "count": 15, "percent": 25 },
+      { "category": "misc", "count": 11, "percent": 18 }
+    ],
+    "timePattern": [
+      { "hour": 9, "count": 4 },
+      { "hour": 10, "count": 8 },
+      { "hour": 11, "count": 6 },
+      { "hour": 13, "count": 3 },
+      { "hour": 14, "count": 7 },
+      { "hour": 15, "count": 5 },
+      { "hour": 16, "count": 4 },
+      { "hour": 19, "count": 6 },
+      { "hour": 20, "count": 9 },
+      { "hour": 21, "count": 5 },
+      { "hour": 22, "count": 3 }
+    ],
+    "monthlyPattern": [
+      { "monthsAgo": 6, "count": 5 },
+      { "monthsAgo": 5, "count": 7 },
+      { "monthsAgo": 4, "count": 8 },
+      { "monthsAgo": 3, "count": 9 },
+      { "monthsAgo": 2, "count": 10 },
+      { "monthsAgo": 1, "count": 11 },
+      { "monthsAgo": 0, "count": 10 }
+    ],
+    "duplicateDetected": 17,
+    "potentialTimeSaved": "~14 hours over 6 months",
+    "topConnections": [
+      { "from": "group_python_analysis", "to": "group_thesis_writing", "strength": 0.78 },
+      { "from": "group_literature_review", "to": "group_thesis_methodology", "strength": 0.85 },
+      { "from": "group_thesis_writing", "to": "group_english_polishing", "strength": 0.92 },
+      { "from": "group_job_search", "to": "group_english_polishing", "strength": 0.71 }
+    ]
+  },
+  "implicitRules": [
+    {
+      "id": "rule_01",
+      "category": "tone",
+      "rule": "Assumes academic, formal tone in writing tasks",
+      "evidence": "15 conversations explicitly requested formal/academic tone",
+      "confidence": 0.94,
+      "createdAt": "2024-12-10",
+      "isActive": true
+    },
+    {
+      "id": "rule_02",
+      "category": "format",
+      "rule": "Prefers Python code blocks with inline comments",
+      "evidence": "Observed across 13 coding conversations",
+      "confidence": 0.91,
+      "createdAt": "2024-11-22",
+      "isActive": true
+    },
+    {
+      "id": "rule_03",
+      "category": "context",
+      "rule": "Working on Master's thesis: AI trust formation in HCI",
+      "evidence": "Recurring topic across 21 research conversations",
+      "confidence": 0.97,
+      "createdAt": "2024-10-05",
+      "isActive": true
+    },
+    {
+      "id": "rule_04",
+      "category": "format",
+      "rule": "Uses APA 7th edition for citations",
+      "evidence": "Asked about APA format 3 times; corrected to APA 7th",
+      "confidence": 0.88,
+      "createdAt": "2024-12-01",
+      "isActive": true
+    },
+    {
+      "id": "rule_05",
+      "category": "language",
+      "rule": "Bilingual (Korean native, English for academic writing)",
+      "evidence": "Frequently requests Korean→English translation with academic polish",
+      "confidence": 0.96,
+      "createdAt": "2024-11-15",
+      "isActive": true
+    },
+    {
+      "id": "rule_06",
+      "category": "tools",
+      "rule": "Works in Jupyter Notebook environment with pandas + matplotlib",
+      "evidence": "12 conversations reference Jupyter / pandas / matplotlib",
+      "confidence": 0.89,
+      "createdAt": "2024-12-15",
+      "isActive": true
+    },
+    {
+      "id": "rule_07",
+      "category": "preference",
+      "rule": "Wants concise answers, dislikes overly long explanations",
+      "evidence": "7 follow-ups asking 'shorter' or 'just the answer'",
+      "confidence": 0.82,
+      "createdAt": "2024-12-20",
+      "isActive": true
+    },
+    {
+      "id": "rule_08",
+      "category": "context",
+      "rule": "Currently job-hunting for UX/HCI research roles abroad",
+      "evidence": "5 recent conversations on resume/cover letter polishing",
+      "confidence": 0.86,
+      "createdAt": "2025-01-20",
+      "isActive": true
+    }
+  ],
+  "thematicDrift": {
+    "lastSevenDays": [
+      { "topic": "Python data visualization", "percent": 45 },
+      { "topic": "English polishing for thesis", "percent": 30 },
+      { "topic": "Job application materials", "percent": 25 }
+    ],
+    "trendingUp": [
+      "Job search materials",
+      "matplotlib visualization"
+    ],
+    "fadingOut": [
+      "Literature review",
+      "IRB administration"
+    ]
+  }
+}

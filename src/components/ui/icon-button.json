@@ -1,0 +1,110 @@
+{
+  "name": "IconButton",
+  "figmaNodeId": "1:818",
+  "description": "아이콘만 포함된 원형 또는 사각형 버튼. 사이드바 액션, 툴바 등에 사용.",
+  "dimensions": {
+    "width": 36,
+    "height": 36
+  },
+  "props": {
+    "variant": {
+      "type": "enum",
+      "values": ["Primary", "Subtle", "Square"],
+      "default": "Primary"
+    },
+    "status": {
+      "type": "enum",
+      "values": ["Default", "Hover", "Pressed"],
+      "default": "Default"
+    }
+  },
+  "variants": [
+    {
+      "id": "1:819",
+      "variant": "Primary",
+      "status": "Default",
+      "style": {
+        "background": "#0D0D0D",
+        "borderRadius": "1000px",
+        "iconColor": "#FFFFFF"
+      }
+    },
+    {
+      "id": "1:821",
+      "variant": "Primary",
+      "status": "Hover",
+      "style": {
+        "background": "#5D5D5D",
+        "borderRadius": "1000px",
+        "iconColor": "#FFFFFF"
+      }
+    },
+    {
+      "id": "1:823",
+      "variant": "Subtle",
+      "status": "Default",
+      "style": {
+        "background": "transparent",
+        "borderRadius": "1000px",
+        "iconColor": "#0D0D0D"
+      }
+    },
+    {
+      "id": "1:825",
+      "variant": "Subtle",
+      "status": "Hover",
+      "style": {
+        "background": "rgba(143,143,143,0.2)",
+        "borderRadius": "1000px",
+        "iconColor": "#0D0D0D"
+      }
+    },
+    {
+      "id": "1:827",
+      "variant": "Subtle",
+      "status": "Pressed",
+      "style": {
+        "background": "rgba(13,13,13,0.05)",
+        "borderRadius": "1000px",
+        "iconColor": "#0D0D0D"
+      }
+    },
+    {
+      "id": "1:829",
+      "variant": "Square",
+      "status": "Default",
+      "style": {
+        "background": "transparent",
+        "borderRadius": "8px",
+        "iconColor": "#0D0D0D"
+      }
+    },
+    {
+      "id": "1:831",
+      "variant": "Square",
+      "status": "Hover",
+      "style": {
+        "background": "#E8E8E8",
+        "borderRadius": "8px",
+        "iconColor": "#0D0D0D"
+      }
+    },
+    {
+      "id": "1:833",
+      "variant": "Square",
+      "status": "Pressed",
+      "style": {
+        "background": "#E8E8E8",
+        "borderRadius": "8px",
+        "iconColor": "#0D0D0D"
+      }
+    }
+  ],
+  "designTokens": {
+    "color/grey/5": "#0D0D0D",
+    "color/grey/36": "#5D5D5D",
+    "color/grey/91": "#E8E8E8",
+    "color/grey/56-20%": "rgba(143,143,143,0.2)",
+    "color/grey/5-5%": "rgba(13,13,13,0.05)"
+  }
+}
