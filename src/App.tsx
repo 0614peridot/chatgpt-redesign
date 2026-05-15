@@ -22,13 +22,17 @@ export function App() {
   });
 
   const navigate = React.useCallback((v: string) => {
+    const base = import.meta.env.BASE_URL; // '/' in dev, '/chatgpt-redesign/' in prod
     if (v.startsWith('project-detail:')) {
       const name = v.slice('project-detail:'.length);
-      window.history.pushState({}, '', `?view=project-detail&project=${encodeURIComponent(name)}`);
+      window.history.pushState({}, '', `${base}?view=project-detail&project=${encodeURIComponent(name)}`);
       setActiveProject(name);
       setView('project-detail');
+    } else if (v === 'new-chat') {
+      window.history.pushState({}, '', base);
+      setView('new-chat');
     } else {
-      window.history.pushState({}, '', v === 'new-chat' ? '/' : `?view=${v}`);
+      window.history.pushState({}, '', `${base}?view=${v}`);
       setView(v as View);
     }
   }, []);
