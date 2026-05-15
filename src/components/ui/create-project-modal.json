@@ -1,0 +1,107 @@
+{
+  "name": "CreateProjectModal",
+  "figmaNodeId": "136:3306",
+  "description": "새 프로젝트를 생성하는 팝업 모달. 프로젝트 이름 입력 필드, 안내 문구, Create project CTA 버튼 포함.",
+  "dimensions": {
+    "width": 480
+  },
+  "props": {
+    "initialName": {
+      "type": "string",
+      "default": "",
+      "description": "입력 필드 초기값. project suggestion에서 열 때 자동완성용."
+    },
+    "onClose": {
+      "type": "function",
+      "description": "모달 닫기 콜백"
+    },
+    "onConfirm": {
+      "type": "function",
+      "description": "프로젝트 이름을 인자로 받아 생성하는 콜백"
+    }
+  },
+  "variants": [
+    {
+      "id": "136:3306",
+      "state": "empty",
+      "description": "입력 필드 비어있음 — Create project 버튼 unabled",
+      "style": {
+        "ctaBackground": "#CECECE",
+        "ctaCursor": "not-allowed"
+      }
+    },
+    {
+      "id": "136:3306",
+      "state": "filled",
+      "description": "입력 필드에 텍스트 있음 — Create project 버튼 활성",
+      "style": {
+        "ctaBackground": "#0D0D0D",
+        "ctaCursor": "pointer"
+      }
+    }
+  ],
+  "layout": {
+    "type": "vertical",
+    "gap": 16,
+    "padding": 16,
+    "borderRadius": 16,
+    "shadow": "0px 8px 40px 0px rgba(0,0,0,0.25)"
+  },
+  "sections": {
+    "header": {
+      "title": { "text": "Create Project", "fontSize": 20, "lineHeight": 24, "fontWeight": 400 },
+      "actions": [
+        { "icon": "setting", "size": 36, "radius": "full" },
+        { "icon": "X", "size": 36, "radius": "full" }
+      ]
+    },
+    "form": {
+      "gap": 18,
+      "label": { "text": "Project name", "fontSize": 16, "lineHeight": 20 },
+      "input": {
+        "borderRadius": 8,
+        "border": "1px solid #E8E8E8",
+        "paddingX": 12,
+        "paddingY": 14,
+        "fontSize": 14,
+        "lineHeight": 20
+      },
+      "infoBox": {
+        "background": "rgba(13,13,13,0.05)",
+        "borderRadius": 16,
+        "paddingX": 16,
+        "paddingY": 12,
+        "gap": 10,
+        "icon": "bulb",
+        "iconSize": 20,
+        "text": "Projects keep chats, files, and custom instructions in one place.  Use them for ongoing work, or just to keep things tidy.",
+        "textFontSize": 12,
+        "textLineHeight": 14,
+        "textColor": "#5D5D5D"
+      }
+    },
+    "cta": {
+      "label": "Create project",
+      "paddingX": 16,
+      "paddingY": 8,
+      "borderRadius": "full",
+      "fontSize": 16,
+      "lineHeight": 20,
+      "states": {
+        "enabled": { "background": "#0D0D0D", "color": "#FFFFFF" },
+        "disabled": { "background": "#CECECE", "color": "#FFFFFF" }
+      }
+    }
+  },
+  "designTokens": {
+    "popup-width": "480px",
+    "popup-radius": "16px",
+    "popup-padding": "16px",
+    "popup-border": "1px solid rgba(13,13,13,0.15)",
+    "popup-shadow": "0px 8px 40px 0px rgba(0,0,0,0.25)",
+    "popup-input-radius": "8px",
+    "popup-input-border": "1px solid #E8E8E8",
+    "popup-info-radius": "16px",
+    "popup-info-bg": "rgba(13,13,13,0.05)"
+  }
+}

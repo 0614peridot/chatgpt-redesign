@@ -32,6 +32,7 @@
   --color-grey-81-alpha-0: #CECECE00;    /* grey-81 @ 0% */
   --color-black-alpha-0: #00000000;      /* black @ 0% */
   --color-black-alpha-15: #00000026;     /* black @ 15% */
+  --color-black-alpha-25: #00000040;     /* black @ 25% */
 
   /* --- Radius --- */
   --radius-4: 4px;
@@ -252,4 +253,18 @@
 
   /* --- Component: Add Chats --- */
   --add-chats-radius: var(--radius-8);
+
+  /* --- Component: Create Project Popup --- */
+  --popup-width: 480px;
+  --popup-radius: var(--radius-16);
+  --popup-padding: var(--space-16);
+  --popup-border: var(--stroke-weight-1) solid var(--color-grey-5-alpha-15);
+  --popup-shadow: 0px 8px 40px 0px var(--color-black-alpha-25);
+  --popup-input-radius: var(--radius-8);
+  --popup-input-border: var(--stroke-weight-1) solid var(--color-grey-91);
+  --popup-input-padding-x: var(--space-12);
+  --popup-input-padding-y: 14px;
+  --popup-info-radius: var(--radius-16);
+  --popup-info-bg: var(--color-grey-5-alpha-5);
+  --popup-overlay: var(--color-bg-overlay);
 }

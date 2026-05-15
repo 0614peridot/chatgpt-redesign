@@ -130,6 +130,197 @@ function IconBtn({
   );
 }
 
+// ── Create Project Modal ──────────────────────────────────────────────────────
+function CreateProjectModal({
+  initialName = '',
+  onClose,
+  onConfirm,
+}: {
+  initialName?: string;
+  onClose: () => void;
+  onConfirm: (name: string) => void;
+}) {
+  const [name, setName] = React.useState(initialName);
+  const hasName = name.trim().length > 0;
+
+  // Auto-focus input on open
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  React.useEffect(() => {
+    inputRef.current?.focus();
+    if (initialName) {
+      inputRef.current?.select();
+    }
+  }, [initialName]);
+
+  // Close on Escape key
+  React.useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [onClose]);
+
+  return (
+    // Overlay
+    <div
+      onClick={onClose}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 100,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'var(--popup-overlay)',
+      }}
+    >
+      {/* Modal card */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          width: 'var(--popup-width)',
+          background: 'var(--color-white)',
+          border: 'var(--popup-border)',
+          borderRadius: 'var(--popup-radius)',
+          padding: 'var(--popup-padding)',
+          boxShadow: 'var(--popup-shadow)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--space-16)',
+        }}
+      >
+        {/* Header */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+          }}
+        >
+          <span
+            style={{
+              fontFamily: 'var(--font-family-body)',
+              fontSize: 'var(--font-size-20)',
+              lineHeight: 'var(--line-height-24)',
+              color: 'var(--color-black)',
+              fontWeight: 'var(--font-weight-regular)',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Create Project
+          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-8)' }}>
+            <IconBtn icon="setting" size={36} iconSize={20} />
+            <IconBtn icon="X" size={36} iconSize={20} onClick={onClose} />
+          </div>
+        </div>
+
+        {/* Form section */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 18, width: '100%' }}>
+          {/* Label */}
+          <span
+            style={{
+              fontFamily: 'var(--font-family-body)',
+              fontSize: 'var(--font-size-16)',
+              lineHeight: 'var(--line-height-20)',
+              color: 'var(--color-black)',
+              fontWeight: 'var(--font-weight-regular)',
+            }}
+          >
+            Project name
+          </span>
+
+          {/* Input (Placeholder component) */}
+          <input
+            ref={inputRef}
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            onKeyDown={(e) => { if (e.key === 'Enter' && hasName) onConfirm(name.trim()); }}
+            placeholder="UX Research Interview"
+            style={{
+              width: '100%',
+              background: 'var(--color-white)',
+              border: 'var(--popup-input-border)',
+              borderRadius: 'var(--popup-input-radius)',
+              paddingInline: 'var(--popup-input-padding-x)',
+              paddingBlock: 'var(--popup-input-padding-y)',
+              fontFamily: 'var(--font-family-body)',
+              fontSize: 'var(--font-size-14)',
+              lineHeight: 'var(--line-height-20)',
+              color: 'var(--color-grey-5)',
+              outline: 'none',
+              boxSizing: 'border-box',
+            }}
+          />
+
+          {/* Info box */}
+          <div
+            style={{
+              background: 'var(--popup-info-bg)',
+              borderRadius: 'var(--popup-info-radius)',
+              paddingInline: 'var(--space-16)',
+              paddingBlock: 'var(--space-12)',
+              display: 'flex',
+              gap: 'var(--space-10)',
+              alignItems: 'flex-start',
+              width: '100%',
+              boxSizing: 'border-box',
+            }}
+          >
+            <span style={{ flexShrink: 0, width: 20, height: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 1 }}>
+              <img alt="" src={iconUrl('bulb')} style={{ width: 20, height: 20 }} />
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--font-family-body)',
+                fontSize: 'var(--font-size-12)',
+                lineHeight: 'var(--line-height-14)',
+                color: 'var(--color-grey-36)',
+              }}
+            >
+              Projects keep chats, files, and custom instructions in one place.&nbsp; Use them for ongoing work, or just to keep things tidy.
+            </span>
+          </div>
+        </div>
+
+        {/* CTA button — right-aligned */}
+        <div style={{ display: 'flex', justifyContent: 'flex-end', width: '100%' }}>
+          <button
+            type="button"
+            disabled={!hasName}
+            onClick={() => { if (hasName) onConfirm(name.trim()); }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              paddingInline: 'var(--cta-padding-x)',
+              paddingBlock: 'var(--cta-padding-y)',
+              borderRadius: 'var(--cta-radius)',
+              background: hasName ? 'var(--cta-bg-default)' : 'var(--cta-bg-disabled)',
+              cursor: hasName ? 'pointer' : 'not-allowed',
+              transition: 'background 0.15s',
+            }}
+          >
+            <span
+              style={{
+                fontFamily: 'var(--font-family-body)',
+                fontSize: 'var(--font-size-16)',
+                lineHeight: 'var(--line-height-20)',
+                color: 'var(--cta-text)',
+                whiteSpace: 'nowrap',
+                fontWeight: 'var(--font-weight-regular)',
+              }}
+            >
+              Create project
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Project card (small 265px) ────────────────────────────────────────────────
 type ProjectCardData = {
   title: string;
@@ -155,7 +346,6 @@ function ProjectCardSmall({ title, meta, date }: ProjectCardData) {
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: 40 }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-          {/* Title row */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span
               style={{
@@ -168,7 +358,6 @@ function ProjectCardSmall({ title, meta, date }: ProjectCardData) {
             >
               {title}
             </span>
-            {/* More button — hidden by default, would show on hover */}
             <div
               style={{
                 flexShrink: 0,
@@ -184,7 +373,6 @@ function ProjectCardSmall({ title, meta, date }: ProjectCardData) {
               <img alt="" src={iconUrl('more')} style={{ width: 24, height: 24 }} />
             </div>
           </div>
-          {/* Meta */}
           <span
             style={{
               fontFamily: 'var(--font-family-body)',
@@ -198,7 +386,6 @@ function ProjectCardSmall({ title, meta, date }: ProjectCardData) {
             {meta}
           </span>
         </div>
-        {/* Date */}
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
           <span
             style={{
@@ -218,10 +405,11 @@ function ProjectCardSmall({ title, meta, date }: ProjectCardData) {
 }
 
 // ── Suggestion pill button ────────────────────────────────────────────────────
-function SuggestionPill({ label }: { label: string }) {
+function SuggestionPill({ label, onClick }: { label: string; onClick: () => void }) {
   return (
     <button
       type="button"
+      onClick={onClick}
       style={{
         flexShrink: 0,
         width: 265,
@@ -256,9 +444,11 @@ function SuggestionPill({ label }: { label: string }) {
 }
 
 // ── Wide "New Project" card ───────────────────────────────────────────────────
-function NewProjectCard() {
+function NewProjectCard({ onClick }: { onClick: () => void }) {
   return (
-    <div
+    <button
+      type="button"
+      onClick={onClick}
       style={{
         width: 828,
         flexShrink: 0,
@@ -270,10 +460,13 @@ function NewProjectCard() {
         display: 'flex',
         overflow: 'hidden',
         cursor: 'pointer',
+        textAlign: 'left',
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)' }}>
-        <IconBtn icon="group" variant="subtle" iconSize={20} size={36} />
+        <span style={{ flexShrink: 0, width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <img alt="" src={iconUrl('group')} style={{ width: 20, height: 20 }} />
+        </span>
         <span
           style={{
             fontFamily: 'var(--font-family-body)',
@@ -286,7 +479,7 @@ function NewProjectCard() {
           New Project
         </span>
       </div>
-    </div>
+    </button>
   );
 }
 
@@ -323,7 +516,6 @@ function Sidebar({ navigate }: { navigate: NavigateFn }) {
           paddingInline: 'var(--sidebar-item-padding)',
         }}
       >
-        {/* Header row */}
         <div
           style={{
             height: 52,
@@ -339,7 +531,6 @@ function Sidebar({ navigate }: { navigate: NavigateFn }) {
           </div>
         </div>
 
-        {/* Sticky menu — New chat, Search chats */}
         <div
           style={{
             borderBottom: 'var(--border-width-default) solid var(--color-grey-5-alpha-5)',
@@ -364,14 +555,12 @@ function Sidebar({ navigate }: { navigate: NavigateFn }) {
           paddingInline: 'var(--sidebar-item-padding)',
         }}
       >
-        {/* Top nav group */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', paddingBottom: 'var(--space-16)', overflow: 'hidden' }}>
           <SidebarItem icon="apps" label="Apps" />
           <SidebarItem icon="group" label="Projects" isSelected />
           <SidebarItem icon="more" label="More" />
         </div>
 
-        {/* Projects section */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', paddingBottom: 'var(--space-16)', overflow: 'hidden' }}>
           <SectionLabel>Projects</SectionLabel>
           <SidebarItem icon="group" label="New project" />
@@ -381,7 +570,6 @@ function Sidebar({ navigate }: { navigate: NavigateFn }) {
           <SidebarItem icon="more" label="More" />
         </div>
 
-        {/* Recents section */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', paddingBottom: 'var(--space-16)', overflow: 'hidden' }}>
           <SectionLabel>Recents</SectionLabel>
           {recent.map((c) => (
@@ -438,19 +626,43 @@ function Sidebar({ navigate }: { navigate: NavigateFn }) {
   );
 }
 
-// ── Main page ─────────────────────────────────────────────────────────────────
-const PROJECTS: ProjectCardData[] = [
-  { title: 'Paris Trip',         meta: '5 chats, 5 files',          date: '8 days ago'  },
-  { title: 'Design Review',      meta: '3 chats, 2 files',          date: '2 days ago'  },
-  { title: 'Client Feedback',    meta: '6 chats, 1 file',           date: '1 day ago'   },
-  { title: 'Korean Food Recipe', meta: '3 mockups, 2 comments',     date: '2 days ago'  },
-  { title: 'User Testing',       meta: '5 participants, 4 insights', date: '3 days ago'  },
-  { title: 'Feature Request',    meta: '8 suggestions, 1 follow-up', date: '1 week ago' },
+// ── Static seed data ──────────────────────────────────────────────────────────
+const SEED_PROJECTS: ProjectCardData[] = [
+  { title: 'Paris Trip',         meta: '5 chats, 5 files',           date: '8 days ago'  },
+  { title: 'Design Review',      meta: '3 chats, 2 files',           date: '2 days ago'  },
+  { title: 'Client Feedback',    meta: '6 chats, 1 file',            date: '1 day ago'   },
+  { title: 'Korean Food Recipe', meta: '3 mockups, 2 comments',      date: '2 days ago'  },
+  { title: 'User Testing',       meta: '5 participants, 4 insights',  date: '3 days ago'  },
+  { title: 'Feature Request',    meta: '8 suggestions, 1 follow-up', date: '1 week ago'  },
 ];
 
 const SUGGESTIONS = ['UX Research Interview', 'English study', 'Fashion Platform Design'];
 
+// ── Main page ─────────────────────────────────────────────────────────────────
 export default function ProjectsPage({ navigate }: { navigate: NavigateFn }) {
+  const [projects, setProjects] = React.useState<ProjectCardData[]>(SEED_PROJECTS);
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [modalInitialName, setModalInitialName] = React.useState('');
+
+  const openModal = React.useCallback((initialName = '') => {
+    setModalInitialName(initialName);
+    setModalOpen(true);
+  }, []);
+
+  const closeModal = React.useCallback(() => {
+    setModalOpen(false);
+    setModalInitialName('');
+  }, []);
+
+  const handleCreateProject = React.useCallback((name: string) => {
+    setProjects((prev) => [
+      { title: name, meta: '0 chats, 0 files', date: 'just now' },
+      ...prev,
+    ]);
+    setModalOpen(false);
+    setModalInitialName('');
+  }, []);
+
   return (
     <div
       style={{
@@ -493,7 +705,6 @@ export default function ProjectsPage({ navigate }: { navigate: NavigateFn }) {
             gap: 0,
           }}
         >
-          {/* Model selector */}
           <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center' }}>
             <button
               type="button"
@@ -525,7 +736,6 @@ export default function ProjectsPage({ navigate }: { navigate: NavigateFn }) {
               <img alt="" src={iconUrl('chevron-down')} style={{ width: 16, height: 16, flexShrink: 0 }} />
             </button>
           </div>
-          {/* Right actions */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', flexShrink: 0 }}>
             <IconBtn icon="invite" variant="subtle" />
             <IconBtn icon="profile" variant="subtle" />
@@ -571,8 +781,8 @@ export default function ProjectsPage({ navigate }: { navigate: NavigateFn }) {
               </span>
             </div>
 
-            {/* New Project wide card */}
-            <NewProjectCard />
+            {/* New Project wide card — opens modal */}
+            <NewProjectCard onClick={() => openModal()} />
 
             {/* Project suggestions */}
             <div
@@ -597,7 +807,7 @@ export default function ProjectsPage({ navigate }: { navigate: NavigateFn }) {
               </span>
               <div style={{ display: 'flex', gap: 'var(--space-16)', flexWrap: 'nowrap' }}>
                 {SUGGESTIONS.map((s) => (
-                  <SuggestionPill key={s} label={s} />
+                  <SuggestionPill key={s} label={s} onClick={() => openModal(s)} />
                 ))}
               </div>
             </div>
@@ -632,8 +842,8 @@ export default function ProjectsPage({ navigate }: { navigate: NavigateFn }) {
                   maxWidth: 828,
                 }}
               >
-                {PROJECTS.map((p) => (
-                  <ProjectCardSmall key={p.title} {...p} />
+                {projects.map((p) => (
+                  <ProjectCardSmall key={p.title + p.date} {...p} />
                 ))}
               </div>
             </div>
@@ -670,6 +880,15 @@ export default function ProjectsPage({ navigate }: { navigate: NavigateFn }) {
           </div>
         </div>
       </div>
+
+      {/* Modal portal */}
+      {modalOpen && (
+        <CreateProjectModal
+          initialName={modalInitialName}
+          onClose={closeModal}
+          onConfirm={handleCreateProject}
+        />
+      )}
     </div>
   );
 }
