@@ -328,9 +328,10 @@ type ProjectCardData = {
   date: string;
 };
 
-function ProjectCardSmall({ title, meta, date }: ProjectCardData) {
+function ProjectCardSmall({ title, meta, date, onClick }: ProjectCardData & { onClick?: () => void }) {
   return (
     <div
+      onClick={onClick}
       style={{
         flexShrink: 0,
         width: 265,
@@ -342,6 +343,7 @@ function ProjectCardSmall({ title, meta, date }: ProjectCardData) {
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',
+        cursor: onClick ? 'pointer' : 'default',
       }}
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: 40 }}>
@@ -661,7 +663,8 @@ export default function ProjectsPage({ navigate }: { navigate: NavigateFn }) {
     ]);
     setModalOpen(false);
     setModalInitialName('');
-  }, []);
+    navigate(`project-detail:${name}`);
+  }, [navigate]);
 
   return (
     <div
@@ -843,7 +846,11 @@ export default function ProjectsPage({ navigate }: { navigate: NavigateFn }) {
                 }}
               >
                 {projects.map((p) => (
-                  <ProjectCardSmall key={p.title + p.date} {...p} />
+                  <ProjectCardSmall
+                    key={p.title + p.date}
+                    {...p}
+                    onClick={() => navigate(`project-detail:${p.title}`)}
+                  />
                 ))}
               </div>
             </div>
