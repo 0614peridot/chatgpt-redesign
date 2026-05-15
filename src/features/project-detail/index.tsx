@@ -102,6 +102,160 @@ function SectionTab({
   );
 }
 
+// ── Find Relevant Chats Modal ─────────────────────────────────────────────────
+type ModalStage = 'loading' | 'found' | 'select';
+
+const CHAT_NAMES = [
+  'UX research',
+  'Tell me about yourself',
+  'Common interview questions',
+  'What are your strengths and weaknesses?',
+  'Why do you want to work here?',
+  'Where do you see yourself in five years?',
+];
+
+function FindRelevantChatsModal({ onClose }: { onClose: () => void }) {
+  const [stage, setStage] = React.useState<ModalStage>('loading');
+
+  React.useEffect(() => {
+    const t1 = setTimeout(() => setStage('found'), 3000);
+    const t2 = setTimeout(() => setStage('select'), 6000);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+
+  const isDisabled = stage !== 'select';
+
+  return (
+    <>
+      <div
+        onClick={onClose}
+        style={{ position: 'fixed', inset: 0, background: 'var(--popup-overlay)', zIndex: 100 }}
+      />
+      <div style={{
+        position: 'fixed', top: '50%', left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 560, background: 'var(--color-white)',
+        borderRadius: 'var(--popup-radius)',
+        border: 'var(--popup-border)',
+        boxShadow: 'var(--popup-shadow)',
+        zIndex: 101, display: 'flex', flexDirection: 'column', overflow: 'hidden',
+      }}>
+        {/* Header */}
+        <div style={{
+          flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          paddingInline: 'var(--space-24)', height: 60,
+          borderBottom: 'var(--stroke-weight-1) solid var(--color-grey-91)',
+        }}>
+          <span style={{
+            fontFamily: 'var(--font-family-body)', fontSize: 'var(--font-size-20)',
+            lineHeight: 'var(--line-height-28)', fontWeight: 'var(--font-weight-semibold)',
+            color: 'var(--color-text-primary)',
+          }}>
+            Add chats
+          </span>
+          <IconBtn icon="X" onClick={onClose} />
+        </div>
+
+        {/* Body */}
+        <div style={{
+          flex: 1, padding: 'var(--space-24)',
+          display: 'flex', flexDirection: 'column', alignItems: 'center',
+          position: 'relative', minHeight: 380,
+        }}>
+          {stage !== 'select' && (
+            <div style={{
+              flex: 1, width: '100%', display: 'flex', flexDirection: 'column',
+              alignItems: 'center', justifyContent: 'center',
+              position: 'relative', gap: 'var(--space-16)',
+            }}>
+              <div style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center',
+                gap: 'var(--space-16)',
+                opacity: stage === 'found' ? 0 : 1, transition: 'opacity 0.4s ease',
+              }}>
+                <div style={{
+                  width: 306, height: 296,
+                  background: 'var(--color-white)',
+                  border: 'var(--stroke-weight-1) solid var(--color-grey-91)',
+                  borderRadius: 'var(--radius-8)',
+                }} />
+                <span style={{
+                  fontFamily: 'var(--font-family-body)', fontSize: 'var(--font-size-16)',
+                  lineHeight: 'var(--line-height-20)', color: 'var(--color-text-primary)',
+                }}>
+                  Finding relevant chats...
+                </span>
+              </div>
+              {stage === 'found' && (
+                <span style={{
+                  position: 'absolute', top: '50%', left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  fontFamily: 'var(--font-family-body)', fontSize: 'var(--font-size-16)',
+                  lineHeight: 'var(--line-height-20)', color: 'var(--color-text-primary)',
+                  whiteSpace: 'nowrap',
+                }}>
+                  Found 6 relevant chats!
+                </span>
+              )}
+            </div>
+          )}
+
+          {stage === 'select' && (
+            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 'var(--space-16)' }}>
+              <span style={{
+                fontFamily: 'var(--font-family-body)', fontSize: 'var(--font-size-14)',
+                lineHeight: 'var(--line-height-20)', color: 'var(--color-text-muted)',
+              }}>
+                Would you like to add these chats to the project?
+              </span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+                {CHAT_NAMES.map((name) => (
+                  <div key={name} style={{
+                    display: 'flex', alignItems: 'center', gap: 'var(--space-10)',
+                    paddingInline: 'var(--space-12)', paddingBlock: 'var(--space-10)',
+                    borderRadius: 'var(--add-chats-radius)',
+                  }}>
+                    <img alt="" src={iconUrl('chat')} style={{ width: 16, height: 16, flexShrink: 0 }} />
+                    <span style={{
+                      fontFamily: 'var(--font-family-body)', fontSize: 'var(--font-size-14)',
+                      lineHeight: 'var(--line-height-20)', color: 'var(--color-text-primary)',
+                    }}>
+                      {name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* CTA */}
+        <div style={{ flexShrink: 0, paddingInline: 'var(--space-24)', paddingBottom: 'var(--space-24)' }}>
+          <button
+            type="button"
+            disabled={isDisabled}
+            onClick={isDisabled ? undefined : onClose}
+            style={{
+              width: '100%', paddingBlock: 'var(--space-12)',
+              borderRadius: 'var(--cta-radius)',
+              background: isDisabled ? 'var(--cta-bg-disabled)' : 'var(--color-black)',
+              cursor: isDisabled ? 'default' : 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >
+            <span style={{
+              fontFamily: 'var(--font-family-body)', fontSize: 'var(--font-size-16)',
+              lineHeight: 'var(--line-height-20)', color: 'var(--color-white)',
+            }}>
+              Add to project
+            </span>
+          </button>
+        </div>
+      </div>
+    </>
+  );
+}
+
 // ── Sidebar ───────────────────────────────────────────────────────────────────
 const STATIC_PROJECTS = ["Master's Thesis", 'Coding study', 'Interview Prep'];
 
@@ -197,9 +351,11 @@ export default function ProjectDetailPage({
   navigate: NavigateFn;
 }) {
   const [activeTab, setActiveTab] = React.useState<TabType>('Chats');
+  const [findChatsOpen, setFindChatsOpen] = React.useState(false);
 
   return (
     <div style={{ display: 'flex', height: '100vh', width: '100%', background: 'var(--color-bg-default)', isolation: 'isolate' }}>
+      {findChatsOpen && <FindRelevantChatsModal onClose={() => setFindChatsOpen(false)} />}
       <Sidebar navigate={navigate} activeProjectName={projectName} />
 
       {/* ── Main ──────────────────────────────────────────────────────────── */}
@@ -279,6 +435,7 @@ export default function ProjectDetailPage({
                 </button>
                 <button
                   type="button"
+                  onClick={() => setFindChatsOpen(true)}
                   style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-10)', paddingInline: 'var(--space-16)', paddingBlock: 'var(--space-10)', borderRadius: 'var(--radius-full)', border: 'var(--stroke-weight-1_2) solid var(--color-grey-56-alpha-20)', background: 'transparent', cursor: 'pointer' }}
                 >
                   <img alt="" src={iconUrl('add')} style={{ width: 16, height: 16, flexShrink: 0 }} />
