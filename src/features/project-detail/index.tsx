@@ -1,14 +1,11 @@
 import * as React from 'react';
 import { getConversations } from '../../lib/data';
+import emptyProjectGif from '../../assets/gif/empty-project.gif';
 
 type NavigateFn = (view: string) => void;
 
 function iconUrl(name: string): string {
   return new URL(`../../assets/icons/${name}.svg`, import.meta.url).toString();
-}
-
-function gifUrl(name: string): string {
-  return new URL(`../../assets/gif/${name}.gif`, import.meta.url).toString();
 }
 
 // ── Micro components ──────────────────────────────────────────────────────────
@@ -268,7 +265,7 @@ export default function ProjectDetailPage({
                 No chats yet
               </span>
               <img
-                src={gifUrl('empty-project')}
+                src={emptyProjectGif}
                 alt=""
                 style={{ width: 296, height: 296, flexShrink: 0, display: 'block' }}
               />
