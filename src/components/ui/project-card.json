@@ -1,0 +1,112 @@
+{
+  "name": "ProjectCard",
+  "figmaNodeId": "52:1212",
+  "description": "프로젝트를 나타내는 카드 컴포넌트. 두 가지 레이아웃 변형(Default 소형, Wide 대형)을 가짐.",
+  "variants": [
+    {
+      "id": "52:1211",
+      "property1": "Default",
+      "layout": "small",
+      "dimensions": { "width": 265, "height": 138 },
+      "style": {
+        "background": "#FFFFFF",
+        "border": "1px solid rgba(0,0,0,0.15)",
+        "borderRadius": "16px",
+        "paddingX": 16,
+        "paddingY": 12
+      },
+      "content": {
+        "title": {
+          "typography": { "fontSize": 20, "lineHeight": 24, "fontWeight": 400, "color": "#0D0D0D" }
+        },
+        "meta": {
+          "typography": { "fontSize": 14, "lineHeight": 20, "fontWeight": 400, "color": "#5D5D5D", "letterSpacing": 0.14 },
+          "example": "5 chats, 5 files"
+        },
+        "date": {
+          "typography": { "fontSize": 12, "lineHeight": 14, "fontWeight": 400, "color": "#8F8F8F" },
+          "example": "8 days ago",
+          "align": "right"
+        },
+        "actionButton": {
+          "component": "IconButton",
+          "variant": "Square",
+          "size": 36,
+          "visibility": "hover-only",
+          "opacity": { "default": 0, "hover": 1 }
+        }
+      }
+    },
+    {
+      "id": "52:1213",
+      "property1": "Hover",
+      "layout": "small",
+      "dimensions": { "width": 265, "height": 138 },
+      "style": {
+        "background": "#FFFFFF",
+        "border": "1px solid rgba(0,0,0,0.15)",
+        "borderRadius": "16px",
+        "paddingX": 16,
+        "paddingY": 12
+      },
+      "notes": "hover 시 actionButton opacity 1로 전환"
+    },
+    {
+      "id": "85:3466",
+      "property1": "Default",
+      "layout": "wide",
+      "figmaNodeId": "85:3467",
+      "dimensions": { "width": 828, "height": 60 },
+      "style": {
+        "background": "#FFFFFF",
+        "border": "1px solid rgba(0,0,0,0.15)",
+        "borderRadius": "16px",
+        "paddingX": 16,
+        "paddingY": 12
+      },
+      "content": {
+        "icon": {
+          "component": "IconButton",
+          "variant": "Subtle",
+          "size": 36
+        },
+        "title": {
+          "typography": { "fontSize": 20, "lineHeight": 24, "fontWeight": 400, "color": "#0D0D0D" },
+          "example": "New Project"
+        }
+      }
+    },
+    {
+      "id": "85:3468",
+      "property1": "Hover",
+      "layout": "wide",
+      "dimensions": { "width": 828, "height": 60 },
+      "style": {
+        "background": "#FFFFFF",
+        "border": "1px solid rgba(0,0,0,0.15)",
+        "borderRadius": "16px",
+        "paddingX": 16,
+        "paddingY": 12
+      }
+    }
+  ],
+  "typography": {
+    "fontFamily": "Helvetica",
+    "fontWeight": 400
+  },
+  "designTokens": {
+    "color/white/solid": "#FFFFFF",
+    "color/black/-15%": "rgba(0,0,0,0.15)",
+    "color/grey/5": "#0D0D0D",
+    "color/grey/36": "#5D5D5D",
+    "color/grey/56": "#8F8F8F",
+    "radius/16": 16,
+    "item-spacing/s": 16,
+    "item-spacing/12": 12,
+    "item-spacing/4": 4,
+    "font-size/12": 12,
+    "font-size/14": 14,
+    "line-height/20": 20,
+    "line-height/24": 24
+  }
+}

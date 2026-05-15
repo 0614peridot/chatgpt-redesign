@@ -1,0 +1,72 @@
+{
+  "name": "CTA",
+  "figmaNodeId": "57:3563",
+  "description": "텍스트만 있는 pill 형태의 CTA 버튼. 메인 액션 호출에 사용. 아이콘 없음.",
+  "dimensions": {
+    "height": 36,
+    "minWidth": "fit-content"
+  },
+  "props": {
+    "property1": {
+      "type": "enum",
+      "values": ["Default", "Hover", "Unabled"],
+      "default": "Default"
+    },
+    "label": {
+      "type": "string",
+      "default": "Create an image",
+      "description": "버튼에 표시될 텍스트"
+    }
+  },
+  "variants": [
+    {
+      "id": "57:3562",
+      "property1": "Default",
+      "style": {
+        "background": "#0D0D0D",
+        "borderRadius": "1000px",
+        "textColor": "#FFFFFF"
+      }
+    },
+    {
+      "id": "57:3564",
+      "property1": "Hover",
+      "style": {
+        "background": "#5D5D5D",
+        "borderRadius": "1000px",
+        "textColor": "#FFFFFF"
+      }
+    },
+    {
+      "id": "57:3566",
+      "property1": "Unabled",
+      "style": {
+        "background": "#CECECE",
+        "borderRadius": "1000px",
+        "textColor": "#FFFFFF"
+      }
+    }
+  ],
+  "typography": {
+    "fontFamily": "Helvetica",
+    "fontWeight": 400,
+    "fontSize": 16,
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "center"
+  },
+  "spacing": {
+    "paddingX": 16,
+    "paddingY": 8
+  },
+  "designTokens": {
+    "color/grey/5": "#0D0D0D",
+    "color/grey/36": "#5D5D5D",
+    "color/grey/81": "#CECECE",
+    "color/white/solid": "#FFFFFF",
+    "item-spacing/s": 16,
+    "item-spacing/8": 8,
+    "line-height/20": 20,
+    "font-weight/400": 400
+  }
+}

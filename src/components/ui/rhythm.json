@@ -1,0 +1,59 @@
+{
+  "name": "Rhythm",
+  "figmaNodeId": "29:6298",
+  "description": "로딩 스켈레톤 블록. 텍스트 라인의 자리표시자 역할. Property 값(1~4)에 따라 다른 너비로 변화해 자연스러운 텍스트 레이아웃을 모방.",
+  "dimensions": {
+    "height": 24,
+    "width": 40
+  },
+  "props": {
+    "property": {
+      "type": "enum",
+      "values": ["1", "2", "3", "4"],
+      "default": "1",
+      "description": "너비 변형 단계. 숫자가 클수록 다른 너비를 가짐"
+    }
+  },
+  "variants": [
+    {
+      "id": "29:6297",
+      "property": "1",
+      "style": {
+        "background": "#E8E8E8",
+        "borderRadius": "4px"
+      },
+      "dimensions": { "width": 40, "height": 24 }
+    },
+    {
+      "id": "29:6299",
+      "property": "2",
+      "style": {
+        "background": "#E8E8E8",
+        "borderRadius": "4px"
+      },
+      "dimensions": { "width": 40, "height": 24 }
+    },
+    {
+      "id": "29:6300",
+      "property": "3",
+      "style": {
+        "background": "#E8E8E8",
+        "borderRadius": "4px"
+      },
+      "dimensions": { "width": 40, "height": 24 }
+    },
+    {
+      "id": "29:6301",
+      "property": "4",
+      "style": {
+        "background": "#E8E8E8",
+        "borderRadius": "4px"
+      },
+      "dimensions": { "width": 40, "height": 24 }
+    }
+  ],
+  "designTokens": {
+    "color/grey/91": "#E8E8E8",
+    "radius/4": 4
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "name": "SectionButton",
+  "figmaNodeId": "57:4506",
+  "description": "섹션 전환용 pill 형태의 탭 버튼. e.g. 'Chats' / 'Projects' 전환.",
+  "dimensions": {
+    "height": 40,
+    "minWidth": "fit-content"
+  },
+  "props": {
+    "status": {
+      "type": "enum",
+      "values": ["Selected", "Default", "Hover"],
+      "default": "Default"
+    },
+    "label": {
+      "type": "string",
+      "default": "Chats",
+      "description": "버튼에 표시될 섹션 이름"
+    }
+  },
+  "variants": [
+    {
+      "id": "57:4505",
+      "status": "Selected",
+      "style": {
+        "background": "#E8E8E8",
+        "borderRadius": "40px",
+        "textColor": "#0D0D0D"
+      }
+    },
+    {
+      "id": "57:4507",
+      "status": "Default",
+      "style": {
+        "background": "transparent",
+        "borderRadius": "40px",
+        "textColor": "#8F8F8F"
+      }
+    },
+    {
+      "id": "57:4509",
+      "status": "Hover",
+      "style": {
+        "background": "rgba(13,13,13,0.05)",
+        "borderRadius": "40px",
+        "textColor": "#8F8F8F"
+      }
+    }
+  ],
+  "typography": {
+    "fontFamily": "Helvetica",
+    "fontWeight": 400,
+    "fontSize": 14,
+    "lineHeight": 20,
+    "letterSpacing": 0,
+    "textAlign": "center"
+  },
+  "spacing": {
+    "paddingX": 16,
+    "paddingY": 10
+  },
+  "designTokens": {
+    "color/grey/91": "#E8E8E8",
+    "color/grey/56": "#8F8F8F",
+    "color/grey/5": "#0D0D0D",
+    "color/grey/5-5%": "rgba(13,13,13,0.05)",
+    "radius/40": 40,
+    "item-spacing/s": 16,
+    "font-size/14": 14,
+    "line-height/20": 20,
+    "font-weight/400": 400
+  }
+}

@@ -33,6 +33,15 @@
   --color-black-alpha-0: #00000000;      /* black @ 0% */
   --color-black-alpha-15: #00000026;     /* black @ 15% */
 
+  /* --- Radius --- */
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-16: 16px;
+  --radius-28: 28px;
+  --radius-40: 40px;
+  --radius-full: 1000px;
+
   /* --- Stroke weight --- */
   --stroke-weight-0_8: 0.8px;
   --stroke-weight-1: 1px;
@@ -47,6 +56,7 @@
   --width-260: 260px;
   --width-268: 268px;
   --width-768: 768px;
+  --width-828: 828px;
 
   /* --- Height --- */
   --height-32: 32px;
@@ -94,6 +104,7 @@
   --line-height-20: 20px;
   --line-height-24: 24px;
   --line-height-28: 28px;
+  --line-height-34: 34px;
 
   /* --- Typography: Weight --- */
   --font-weight-regular: 400;
@@ -102,6 +113,8 @@
 
   /* --- Typography: Letter spacing --- */
   --letter-spacing-tight: -0.27px;
+  --letter-spacing-wide: 0.6px;
+  --letter-spacing-meta: 0.14px;
 
 
   /* ============================================================
@@ -198,4 +211,45 @@
   --search-modal-gap-sm: var(--spacing-sm);
   --search-modal-item-padding: var(--spacing-md);
   --search-modal-item-radius: var(--card-radius);
+
+  /* --- Component: CTA Button --- */
+  --cta-padding-x: var(--space-16);
+  --cta-padding-y: var(--space-8);
+  --cta-radius: var(--radius-full);
+  --cta-bg-default: var(--color-grey-5);
+  --cta-bg-hover: var(--color-grey-36);
+  --cta-bg-disabled: var(--color-grey-81);
+  --cta-text: var(--color-white);
+
+  /* --- Component: Section Button --- */
+  --section-btn-padding-x: var(--space-16);
+  --section-btn-padding-y: var(--space-10);
+  --section-btn-radius: var(--radius-40);
+  --section-btn-bg-selected: var(--color-grey-91);
+  --section-btn-bg-hover: var(--color-grey-5-alpha-5);
+  --section-btn-text-selected: var(--color-text-primary);
+  --section-btn-text-default: var(--color-text-muted);
+
+  /* --- Component: Chat Bar --- */
+  --chat-bar-height: var(--height-56);
+  --chat-bar-max-width: var(--width-828);
+  --chat-bar-radius: var(--radius-28);
+  --chat-bar-padding: var(--space-10);
+  --chat-bar-bg: var(--color-white);
+
+  /* --- Component: Project Card --- */
+  --project-card-radius: var(--radius-16);
+  --project-card-border: var(--stroke-weight-1) solid var(--color-black-alpha-15);
+  --project-card-padding-x: var(--space-16);
+  --project-card-padding-y: var(--space-12);
+  --project-card-width: 265px;
+  --project-card-width-wide: var(--width-828);
+
+  /* --- Component: Rhythm (skeleton) --- */
+  --rhythm-radius: var(--radius-4);
+  --rhythm-height: 24px;
+  --rhythm-bg: var(--color-grey-91);
+
+  /* --- Component: Add Chats --- */
+  --add-chats-radius: var(--radius-8);
 }

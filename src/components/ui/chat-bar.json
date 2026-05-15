@@ -1,0 +1,63 @@
+{
+  "name": "ChatBar",
+  "figmaNodeId": "52:1431",
+  "description": "메인 채팅 입력바. 좌측 액션 버튼(+), 텍스트 입력 영역, 우측 음성/전송 버튼을 포함한 pill 형태의 컴포넌트.",
+  "dimensions": {
+    "width": 828,
+    "height": 56
+  },
+  "style": {
+    "background": "#FFFFFF",
+    "borderRadius": "28px",
+    "padding": 10,
+    "boxShadow": "0px 3px 6px 0px rgba(0,0,0,0.04), 0px 4px 80px 8px rgba(0,0,0,0.04), 0px 0px 1px 0px rgba(0,0,0,0.62)"
+  },
+  "layout": {
+    "type": "horizontal",
+    "align": "center",
+    "gap": 0,
+    "items": [
+      {
+        "role": "action-left",
+        "component": "IconButton",
+        "variant": "Subtle",
+        "description": "새 첨부 또는 액션 트리거 (+)"
+      },
+      {
+        "role": "input",
+        "description": "텍스트 입력 영역. placeholder: 'Ask anything'",
+        "placeholder": "Ask anything",
+        "placeholderColor": "#8F8F8F",
+        "typography": {
+          "fontFamily": "Helvetica",
+          "fontSize": 16,
+          "lineHeight": 20,
+          "fontWeight": 400
+        },
+        "maxHeight": 270
+      },
+      {
+        "role": "action-voice",
+        "component": "IconButton",
+        "variant": "Subtle",
+        "description": "음성 입력 버튼"
+      },
+      {
+        "role": "action-send",
+        "component": "IconButton",
+        "variant": "Primary",
+        "description": "메시지 전송 버튼"
+      }
+    ]
+  },
+  "designTokens": {
+    "color/white/solid": "#FFFFFF",
+    "color/grey/5": "#0D0D0D",
+    "color/grey/56": "#8F8F8F",
+    "height/56": 56,
+    "width/828": 828,
+    "height/270": 270,
+    "line-height/20": 20,
+    "font-weight/400": 400
+  }
+}

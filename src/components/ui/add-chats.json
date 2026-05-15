@@ -1,0 +1,88 @@
+{
+  "name": "AddChats",
+  "figmaNodeId": "85:4200",
+  "description": "프로젝트에 채팅을 추가하는 리스트 아이템. PageButton과 동일한 구조이나 프로젝트 컨텍스트에서 사용. 채팅 이름을 선택해 프로젝트에 포함.",
+  "dimensions": {
+    "width": 494,
+    "minHeight": 36
+  },
+  "props": {
+    "property1": {
+      "type": "enum",
+      "values": ["Default", "Variant2", "Variant3"],
+      "default": "Default"
+    },
+    "label": {
+      "type": "string",
+      "default": "UX research",
+      "description": "채팅 이름"
+    }
+  },
+  "variants": [
+    {
+      "id": "85:4199",
+      "property1": "Default",
+      "style": {
+        "background": "transparent",
+        "borderRadius": "10px",
+        "textColor": "#0D0D0D"
+      }
+    },
+    {
+      "id": "85:4201",
+      "property1": "Variant2",
+      "style": {
+        "background": "rgba(13,13,13,0.05)",
+        "borderRadius": "10px",
+        "textColor": "#0D0D0D"
+      }
+    },
+    {
+      "id": "85:4210",
+      "property1": "Variant3",
+      "style": {
+        "background": "#E8E8E8",
+        "borderRadius": "10px",
+        "textColor": "#0D0D0D"
+      }
+    }
+  ],
+  "layout": {
+    "type": "horizontal",
+    "align": "center",
+    "gap": 6,
+    "paddingX": 10,
+    "paddingTop": 7.5,
+    "paddingBottom": 8.5
+  },
+  "content": {
+    "iconStart": {
+      "size": 20,
+      "description": "채팅 아이콘 (chat bubble)"
+    },
+    "label": {
+      "typography": {
+        "fontFamily": "Helvetica",
+        "fontSize": 14,
+        "lineHeight": 20,
+        "fontWeight": 400,
+        "overflow": "ellipsis"
+      }
+    }
+  },
+  "container": {
+    "borderRadius": "8px",
+    "overflow": "hidden"
+  },
+  "designTokens": {
+    "color/grey/5": "#0D0D0D",
+    "color/grey/91": "#E8E8E8",
+    "color/grey/5-5%": "rgba(13,13,13,0.05)",
+    "color/black/-0%": "rgba(0,0,0,0)",
+    "radius/8": 8,
+    "item-spacing/6": 6,
+    "font-size/14": 14,
+    "line-height/20": 20,
+    "font-weight/400": 400
+  }
+}
